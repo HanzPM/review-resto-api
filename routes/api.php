@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\RestoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -10,5 +11,7 @@ Route::post('/auth/register', [AuthenticationController::class, 'register'])->na
 Route::middleware('auth:sanctum')->group(function(){
     Route::get('/auth/profile', [AuthenticationController::class, 'profile'])->name('auth.profile');
     Route::get('/auth/logout', [AuthenticationController::class, 'logout'])->name('auth.logout');
+
 });
 
+Route::apiResource('restos', RestoController::class);

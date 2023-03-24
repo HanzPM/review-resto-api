@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
 {
-
+  
     use RefreshDatabase;
 
    public function test_user_can_login()
