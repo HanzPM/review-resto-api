@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Resto;
-use App\Models\Review;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class RestoSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +15,10 @@ class RestoSeeder extends Seeder
      */
     public function run()
     {
-       Resto::factory()->has(Review::factory()->count(5))->count(100)->create();
-
-}
+            User::create([
+                'name' => 'tester',
+                'email' => 'someone@gmail.com',
+                'password' => bcrypt('password') 
+            ]);
+    }
 }
