@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -8,8 +8,10 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('restos', function (Blueprint $table) {
             $table->id();
@@ -17,13 +19,17 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->text('address');
             $table->timestamps();
+            $table->foreignIdFor(User::class, 'user_id')->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('restos');
     }

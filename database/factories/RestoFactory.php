@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\User;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Resto>
@@ -16,10 +18,11 @@ class RestoFactory extends Factory
      */
     public function definition()
     {
-        return [    
-            'name' => $this->faker->word(),
-            'description' => $this->faker->sentence(),
-            'address' => $this->faker->sentence(),
+        return [
+            'name' =>  $this->faker->word(),
+            'description' =>  $this->faker->sentence(),
+            'address' =>  $this->faker->sentence(),
+            'user_id' => User::factory(),
         ];
     }
 }
