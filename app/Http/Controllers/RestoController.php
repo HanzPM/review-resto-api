@@ -21,9 +21,10 @@ class RestoController extends Controller
      */
     public function store(StoreRestoRequest $request)
     {
-        return Resto::create(
-            $request->validated()
-        );
+        return Resto::create([
+            ...$request->validated(),
+            'user_id' => $request->user()->id
+        ]);
     }
 
     /**
@@ -50,4 +51,10 @@ class RestoController extends Controller
 
         return $resto;
     }
+
+    public function reviews(Resto $resto) 
+    {
+        return $resto->reviews->load('user');
+    }
 }
+
