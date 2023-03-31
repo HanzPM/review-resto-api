@@ -23,7 +23,7 @@ class RestoController extends Controller
     {
         return Resto::create([
             ...$request->validated(),
-            'user_id' => $request->user()->id
+            'user_id' => $request->user()->id   
         ]);
     }
 

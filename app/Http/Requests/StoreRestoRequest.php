@@ -29,16 +29,16 @@ class StoreRestoRequest extends FormRequest
                 'max:255',
                 Rule::unique('restos', 'name')
             ],
-            'description' => [
-                'nullable',
-                'string',
-                'max:750',
-            ],
             'address' => [
                 'required',
                 'string',
                 'max:750',
                 
+            ],
+            'description' => [
+                'nullable',
+                'string',
+                'max:750',
             ],
         ];
     }
